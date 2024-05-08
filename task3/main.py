@@ -5,7 +5,9 @@ from io import TextIOWrapper
 
 def get_args() -> Namespace:
     log_levels = ["INFO", "DEBUG", "ERROR", "WARNING"]
-    parser = ArgumentParser()
+    parser = ArgumentParser(
+        description="Count logs by level and optionally dispaly all logs of selected level",
+        epilog="Easy, innit?")
     #type=FileType("r") opens file and handles FileNotFoundError. Requires file.close()?
     parser.add_argument("filepath", help="Path to the file with logs", type=FileType("r"))
     #type=str.upper makes choises case insensitive
